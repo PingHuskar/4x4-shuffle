@@ -7,14 +7,13 @@ import { Elastic } from 'gsap'
 function App() {
   function GenBoard() {
     console.clear()
-    const ARRAY1TO8 = [ ...Array(8).keys() ].map( i => i+1)
-    const SHUFFLEARRAY1TO8 = ARRAY1TO8.sort((a, b) => 0.5 - Math.random())
-    const GETFIRST8SHUFFLEARRAY1TO8 = SHUFFLEARRAY1TO8.slice(0)
-    // console.log(GETFIRST16SHUFFLEARRAY1TO8)
+    const ARRAY1TO15 = [ ...Array(15).keys() ].map( i => i+1)
+    const SHUFFLEARRAY1TO15 = ARRAY1TO15.sort((a, b) => 0.5 - Math.random())
+    const GETFIRST15SHUFFLEARRAY1TO15 = SHUFFLEARRAY1TO15.slice(0)
     let outOfOrderPairCount = 0
-    for (let item of GETFIRST8SHUFFLEARRAY1TO8) {
-      let temparr = GETFIRST8SHUFFLEARRAY1TO8
-      for (let subarr of temparr.slice(GETFIRST8SHUFFLEARRAY1TO8.indexOf(item)+1)) {
+    for (let item of GETFIRST15SHUFFLEARRAY1TO15) {
+      let temparr = GETFIRST15SHUFFLEARRAY1TO15
+      for (let subarr of temparr.slice(GETFIRST15SHUFFLEARRAY1TO15.indexOf(item)+1)) {
         if (item > subarr) {
           outOfOrderPairCount++
         }
@@ -22,8 +21,8 @@ function App() {
     }
     // console.log(outOfOrderPairCount)
     if (outOfOrderPairCount % 2 === 0) {
-      console.log(GETFIRST8SHUFFLEARRAY1TO8)
-      setRandomBoard(GETFIRST8SHUFFLEARRAY1TO8)
+      console.log(GETFIRST15SHUFFLEARRAY1TO15)
+      setRandomBoard(GETFIRST15SHUFFLEARRAY1TO15)
     } else {
       GenBoard()
     }
